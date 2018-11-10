@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { GoalsService } from '../services/goals.service';
 import { DefaultResponse } from '../../../utilities/types/default-response';
 import { Goal } from '../../../utilities/types/goal';
@@ -12,6 +12,16 @@ export class GoalsController {
 	public getGoals(): DefaultResponse<Goal[]> {
 		return {
 			data: this.service.getGoals(),
+			error: null,
+		};
+	}
+
+	@Post('/')
+	public addGoal(@Body() body: Goal): DefaultResponse<boolean> {
+		this.service.addGoal(body);
+
+		return {
+			data: true,
 			error: null,
 		};
 	}
