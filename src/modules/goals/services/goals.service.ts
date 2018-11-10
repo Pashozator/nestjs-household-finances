@@ -14,10 +14,12 @@ export class GoalsService {
 		return this.goals;
 	}
 
-	public addGoal(goal: Goal): void {
+	public addGoal(goal: Goal): Goal {
 		goal.id = guid();
 
 		this.goals = [goal, ...this.goals];
+
+		return goal;
 	}
 
 	public editGoal(id: string, goal: Goal): void {
@@ -28,5 +30,11 @@ export class GoalsService {
 
 	public removeGoal(id: string): void {
 		this.goals = [...this.goals.filter(goal => goal.id !== id)];
+	}
+
+	public realizeGoal(id: string): void {
+		const index = this.goals.findIndex(_goal => _goal.id === id);
+
+		this.goals[index].realized = true;
 	}
 }
