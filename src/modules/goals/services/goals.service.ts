@@ -19,4 +19,8 @@ export class GoalsService {
 
 		this.goals = [goal, ...this.goals];
 	}
+
+	public removeGoal(id: string): void {
+		this.goals = [...this.goals.filter(goal => goal.id !== id)];
+	}
 }

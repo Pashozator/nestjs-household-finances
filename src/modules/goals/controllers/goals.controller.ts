@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { GoalsService } from '../services/goals.service';
 import { DefaultResponse } from '../../../utilities/types/default-response';
 import { Goal } from '../../../utilities/types/goal';
@@ -19,6 +19,16 @@ export class GoalsController {
 	@Post('/')
 	public addGoal(@Body() body: Goal): DefaultResponse<boolean> {
 		this.service.addGoal(body);
+
+		return {
+			data: true,
+			error: null,
+		};
+	}
+
+	@Delete('/:id')
+	public removeGoal(@Param() params): DefaultResponse<boolean> {
+		this.service.removeGoal(params.id);
 
 		return {
 			data: true,
