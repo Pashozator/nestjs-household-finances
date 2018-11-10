@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { BudgetService } from '../budget.service';
+import { BudgetService } from '../services/budget.service';
 import { DefaultResponse } from '../../../utilities/types/default-response';
 import { Budget } from '../../../utilities/types/budget';
 
