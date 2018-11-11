@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
-import { GoalsService } from '../services/goals.service';
+import { GoalsService } from '../../core/services/goals.service';
 import { DefaultResponse } from '../../../utilities/types/default-response';
 import { Goal } from '../../../utilities/types/goal';
 

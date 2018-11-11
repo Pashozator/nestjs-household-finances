@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { GoalsController } from './controllers/goals.controller';
-import { GoalsService } from './services/goals.service';
+import { CoreModule } from '../core/core.module';
 
 @Module({
-  controllers: [GoalsController],
-  providers: [GoalsService],
+	imports: [CoreModule],
+	controllers: [GoalsController],
+	providers: [],
 })
 export class GoalsModule {
 }
